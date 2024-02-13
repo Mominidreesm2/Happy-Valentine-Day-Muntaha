@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine's Day Proposal</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f3f3;
+        margin: 0;
+        padding: 0;
+    }
+    #proposal-container {
+        text-align: center;
+        margin-top: 50px;
+    }
+    .gif {
+        width: 200px;
+        height: auto;
+        cursor: pointer;
+        margin: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    .gif:hover {
+        transform: scale(1.05);
+    }
+    #yes-button, #no-button {
+        font-size: 20px;
+        margin: 10px;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    #yes-button:hover, #no-button:hover {
+        background-color: #4CAF50;
+        color: white;
+    }
+</style>
+</head>
+<body>
+
+<div id="proposal-container">
+    <h1>Will you be my Valentine, Muntaha?</h1>
+    <img id="cute-bear" class="gif" src="https://www.icegif.com/wp-content/uploads/bear-kissing-icegif-1.gif" alt="Cute Bear">
+    <br>
+    <button id="yes-button">Yes</button>
+    <button id="no-button">No</button>
+</div>
+
+<script>
+    let yesButton = document.getElementById('yes-button');
+    let noButton = document.getElementById('no-button');
+    let cuteBear = document.getElementById('cute-bear');
+    let yesFontSize = 20;
+    let noButtonClickCount = 0;
+
+    yesButton.addEventListener('click', function() {
+        cuteBear.src = "https://www.icegif.com/wp-content/uploads/bear-hug-icegif.gif";
+    });
+
+    noButton.addEventListener('click', function() {
+        if (noButtonClickCount === 0) {
+            alert('Are you sure, Muntaha?');
+            alert('Muntaha, please, I love you so much, baby.');
+            alert('But, Muntaha, have you thought about it carefully?');
+            alert('Do you really want to break my heart, Muntaha?');
+        }
+        noButtonClickCount++;
+
+        if (noButtonClickCount > 3) {
+            noButton.style.position = 'absolute';
+            let newX = Math.floor(Math.random() * (window.innerWidth - noButton.offsetWidth));
+            let newY = Math.floor(Math.random() * (window.innerHeight - noButton.offsetHeight));
+            noButton.style.left = newX + 'px';
+            noButton.style.top = newY + 'px';
+            noButton.style.transition = 'none';
+        }
+
+        yesButton.style.fontSize = (yesFontSize += 5) + 'px';
+        noButton.style.fontSize = '20px';
+        noButton.innerText = 'No 😢';
+        cuteBear.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1gWER5A87psj8kryP4yIS2OO-ENyhtN4tjA&usqp=CAU";
+    });
+
+    cuteBear.addEventListener('click', function() {
+        alert('Will you be my Valentine, Muntaha?');
+    });
+</script>
+
+</body>
+</html>
+
+
